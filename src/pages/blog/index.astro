@@ -47,17 +47,21 @@ const schema = {
   <section class="section">
     <div class="container">
       <div class="grid-3">
-        {posts.map((post) => (
-          <article class="card blog-card">
-            <a href={`/blog/${post.slug}/`}>
-              <img class="blog-thumb" src={post.image} alt={post.imageAlt} loading="lazy" />
-              <div class="eyebrow">Panduan</div>
-              <h2 style="font-size:1.35rem;margin:10px 24px">{post.title}</h2>
-            </a>
-            <p>{post.description}</p>
-            <a class="btn alt" href={`/blog/${post.slug}/`}>Baca artikel</a>
-          </article>
-        ))}
+        {
+          posts.map((post) => (
+            <article class="card blog-card">
+              <a href={`/blog/${post.slug}/`}>
+                <img class="blog-thumb" src={post.image} alt={post.imageAlt} loading="lazy" />
+                <div class="eyebrow">Panduan</div>
+                <h2 style="font-size:1.35rem;margin:10px 24px">{post.title}</h2>
+              </a>
+              <p>{post.description}</p>
+              <a class="btn alt" href={`/blog/${post.slug}/`}>
+                Baca artikel
+              </a>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>

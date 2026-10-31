@@ -47,21 +47,27 @@ const schema = {
           loading="eager"
           style="width:100%;height:auto;max-height:460px;object-fit:cover;border-radius:12px;margin:24px 0"
         />
-        {articleSections.map((section) => (
-          <>
-            <h2>{section.heading}</h2>
-            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
-            {section.list && (
-              <ul>
-                {section.list.map((item) => <li>{item}</li>)}
-              </ul>
-            )}
-          </>
-        ))}
+        {
+          articleSections.map((section) => (
+            <>
+              <h2>{section.heading}</h2>
+              {section.paragraphs?.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+              {section.list && (
+                <ul>
+                  {section.list.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </>
+          ))
+        }
         <div class="highlight">
-          <strong>Informasi proyek:</strong> Kebutuhan material dan pekerjaan dapat berbeda
-          berdasarkan ukuran, kondisi bangunan, spesifikasi produk, serta lokasi proyek. Periksa
-          kembali detail teknis sebelum menentukan kebutuhan akhir.
+          <strong>Informasi proyek:</strong> Kebutuhan material dan pekerjaan dapat berbeda berdasarkan
+          ukuran, kondisi bangunan, spesifikasi produk, serta lokasi proyek. Periksa kembali detail teknis
+          sebelum menentukan kebutuhan akhir.
         </div>
         <p><a href="/blog/">← Kembali ke semua artikel</a></p>
       </div>
