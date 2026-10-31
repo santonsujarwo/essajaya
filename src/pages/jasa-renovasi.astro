@@ -1,8 +1,85 @@
 ---
-import Layout from '../layouts/Layout.astro'; import HowToOrder from '../components/HowToOrder.astro'; import CTA from '../components/CTA.astro';
+import Layout from '../layouts/Layout.astro';
+import HowToOrder from '../components/HowToOrder.astro';
+import CTA from '../components/CTA.astro';
 import FAQ from '../components/FAQ.astro';
-const faqItems = [["Pekerjaan renovasi apa saja yang dapat dikonsultasikan?","Essa Jaya menerima konsultasi bangun dan renovasi, plafon dan partisi, pengecatan, konstruksi baja, serta pekerjaan sipil sesuai ruang lingkup proyek."],["Apakah Essa Jaya melayani survey lokasi?","Survey dapat dibahas untuk memahami kondisi bangunan, akses lokasi, ukuran pekerjaan, dan kebutuhan material."],["Bagaimana mendapatkan estimasi biaya renovasi?","Kirimkan alamat proyek, foto kondisi bangunan, kebutuhan pekerjaan, ukuran area, dan target waktu. Estimasi disesuaikan setelah ruang lingkup jelas."],["Apakah biaya sudah termasuk material dan tenaga kerja?","Komponen biaya dijelaskan dalam penawaran. Pastikan rincian material, tenaga kerja, pekerjaan tambahan, pengiriman, dan pengecualian tertulis."],["Berapa lama proses renovasi rumah?","Durasi bergantung pada luas, kondisi bangunan, kompleksitas, ketersediaan material, cuaca, dan perubahan pekerjaan."],["Bagaimana proses pemesanan jasa renovasi?","Mulai dari konsultasi, survey lokasi, penyusunan ruang lingkup dan penawaran, persetujuan, lalu penjadwalan pekerjaan."]];
-const title='Jasa Renovasi Rumah Mojokerto | Essa Jaya'; const description='Jasa renovasi rumah di Mojokerto untuk bangun rumah, perbaikan, plafon, pengecatan, konstruksi baja dan pekerjaan sipil. Konsultasikan proyek dengan Essa Jaya.'; const canonical='https://essajaya.com/jasa-renovasi/';
+const faqItems = [["Pekerjaan renovasi apa saja yang dapat dikonsultasikan?","Essa Jaya menerima konsultasi bangun dan renovasi, plafon dan partisi, pengecatan, konstruksi baja, serta pekerjaan sipil sesuai ruang lingkup proyek."],
+["Apakah Essa Jaya melayani survey lokasi?","Survey dapat dibahas untuk memahami kondisi bangunan, akses lokasi, ukuran pekerjaan, dan kebutuhan material."],
+["Bagaimana mendapatkan estimasi biaya renovasi?","Kirimkan alamat proyek, foto kondisi bangunan, kebutuhan pekerjaan, ukuran area, dan target waktu. Estimasi disesuaikan setelah ruang lingkup jelas."],
+["Apakah biaya sudah termasuk material dan tenaga kerja?","Komponen biaya dijelaskan dalam penawaran. Pastikan rincian material, tenaga kerja, pekerjaan tambahan, pengiriman, dan pengecualian tertulis."],
+["Berapa lama proses renovasi rumah?","Durasi bergantung pada luas, kondisi bangunan, kompleksitas, ketersediaan material, cuaca, dan perubahan pekerjaan."],
+["Bagaimana proses pemesanan jasa renovasi?","Mulai dari konsultasi, survey lokasi, penyusunan ruang lingkup dan penawaran, persetujuan, lalu penjadwalan pekerjaan."]];
+const title='Jasa Renovasi Rumah Mojokerto | Essa Jaya';
+const description='Jasa renovasi rumah di Mojokerto untuk bangun rumah, perbaikan, plafon, pengecatan, konstruksi baja dan pekerjaan sipil. Konsultasikan proyek dengan Essa Jaya.';
+const canonical='https://essajaya.com/jasa-renovasi/';
 const schema={'@context':'https://schema.org','@graph':[{'@type':'Service','name':'Jasa Renovasi Rumah Mojokerto','serviceType':'Renovasi rumah','provider':{'@type':'LocalBusiness','name':'ESSA JAYA','url':'https://essajaya.com/','telephone':'+628226440796'},'areaServed':['Mojokerto','Sidoarjo','Surabaya','Gresik','Pasuruan','Jombang'],'url':canonical},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Beranda','item':'https://essajaya.com/'},{'@type':'ListItem','position':2,'name':'Jasa Renovasi Rumah','item':canonical}]}]};
 ---
-<Layout {title} {description} {canonical} {schema}><section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Jasa konstruksi • Mojokerto</div><h1>Jasa Renovasi Rumah Mojokerto</h1><p>Essa Jaya menyediakan layanan renovasi dan pekerjaan konstruksi untuk kebutuhan rumah dan bangunan. Ruang lingkup pekerjaan, kondisi lokasi, material, dan estimasi biaya ditentukan setelah konsultasi.</p><div class="actions"><a class="btn" href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20konsultasi%20jasa%20renovasi.">Konsultasi renovasi</a><a class="btn alt" href="/hubungi-kami/">Informasi layanan</a></div></div><div class="visual"><div class="visual-label"><span class="eyebrow" style="color:#d9c8a4">Essa Jaya</span><strong>Renovasi Rumah</strong><span>Perencanaan ruang lingkup, material, dan pekerjaan sesuai proyek.</span></div></div></div></section><section class="section"><div class="container"><div class="section-head"><div class="eyebrow">Layanan</div><h2>Jenis pekerjaan renovasi</h2></div><div class="grid-3"><div class="card"><h3>Bangun & renovasi</h3><p>Perubahan, penambahan, atau perbaikan ruang sesuai kebutuhan bangunan.</p></div><div class="card"><h3>Plafon & partisi</h3><p>Pekerjaan plafon dan partisi untuk penataan serta pembagian ruang.</p></div><div class="card"><h3>Pengecatan</h3><p>Pengecatan dan penyegaran permukaan sesuai kondisi serta spesifikasi proyek.</p></div><div class="card"><h3>Konstruksi baja</h3><p>Pekerjaan struktur atau elemen baja sesuai kebutuhan proyek dan hasil survey.</p></div><div class="card"><h3>Pekerjaan sipil</h3><p>Pekerjaan sipil disesuaikan dengan ruang lingkup dan kondisi lapangan.</p></div><div class="card"><h3>Konsultasi proyek</h3><p>Diskusikan kebutuhan, kondisi bangunan, lokasi, jadwal, dan anggaran awal.</p></div></div></div></section><section class="section soft"><div class="container"><div class="section-head"><div class="eyebrow">E-E-A-T</div><h2>Informasi proyek yang transparan</h2><p>Untuk setiap pekerjaan yang dipublikasikan, kami sarankan mencantumkan jenis pekerjaan, lokasi tingkat kota/kabupaten, ruang lingkup, foto sebelum-sesudah, dan periode pekerjaan. Informasi tersebut menjadi bukti pengalaman yang lebih bermakna daripada klaim umum.</p></div></div></section><HowToOrder /><FAQ title="FAQ Jasa Renovasi" items={faqItems} /><CTA /></Layout>
+
+<Layout {title} {description} {canonical} {schema}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Jasa konstruksi • Mojokerto</div>
+        <h1>Jasa Renovasi Rumah Mojokerto</h1>
+        <p>Essa Jaya menyediakan layanan renovasi dan pekerjaan konstruksi untuk kebutuhan rumah dan bangunan. Ruang lingkup pekerjaan, kondisi lokasi, material, dan estimasi biaya ditentukan setelah konsultasi.</p>
+        <div class="actions">
+          <a class="btn" href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20konsultasi%20jasa%20renovasi.">Konsultasi renovasi</a>
+          <a class="btn alt" href="/hubungi-kami/">Informasi layanan</a>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="visual-label">
+          <span class="eyebrow" style="color:#d9c8a4">Essa Jaya</span>
+          <strong>Renovasi Rumah</strong>
+          <span>Perencanaan ruang lingkup, material, dan pekerjaan sesuai proyek.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Layanan</div>
+        <h2>Jenis pekerjaan renovasi</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Bangun & renovasi</h3>
+          <p>Perubahan, penambahan, atau perbaikan ruang sesuai kebutuhan bangunan.</p>
+        </div>
+        <div class="card">
+          <h3>Plafon & partisi</h3>
+          <p>Pekerjaan plafon dan partisi untuk penataan serta pembagian ruang.</p>
+        </div>
+        <div class="card">
+          <h3>Pengecatan</h3>
+          <p>Pengecatan dan penyegaran permukaan sesuai kondisi serta spesifikasi proyek.</p>
+        </div>
+        <div class="card">
+          <h3>Konstruksi baja</h3>
+          <p>Pekerjaan struktur atau elemen baja sesuai kebutuhan proyek dan hasil survey.</p>
+        </div>
+        <div class="card">
+          <h3>Pekerjaan sipil</h3>
+          <p>Pekerjaan sipil disesuaikan dengan ruang lingkup dan kondisi lapangan.</p>
+        </div>
+        <div class="card">
+          <h3>Konsultasi proyek</h3>
+          <p>Diskusikan kebutuhan, kondisi bangunan, lokasi, jadwal, dan anggaran awal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section soft">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">E-E-A-T</div>
+        <h2>Informasi proyek yang transparan</h2>
+        <p>Untuk setiap pekerjaan yang dipublikasikan, kami sarankan mencantumkan jenis pekerjaan, lokasi tingkat kota/kabupaten, ruang lingkup, foto sebelum-sesudah, dan periode pekerjaan. Informasi tersebut menjadi bukti pengalaman yang lebih bermakna daripada klaim umum.</p>
+      </div>
+    </div>
+  </section>
+  <HowToOrder />
+  <FAQ title="FAQ Jasa Renovasi" items={faqItems} />
+  <CTA />
+</Layout>
