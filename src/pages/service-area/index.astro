@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HowToOrder from '../../components/HowToOrder.astro';
+import CTA from '../../components/CTA.astro';
+const title='Service Area Essa Jaya | Mojokerto, Sidoarjo, Surabaya & Jawa Timur';
+const description='Area layanan Essa Jaya untuk panel lantai, bata ringan dan jasa renovasi rumah dari Dlanggu, Mojokerto ke kota dan kabupaten di Jawa Timur yang dilayani.';
+const canonical='https://essajaya.com/service-area/';
+const areas=[['mojokerto','Mojokerto','Kabupaten/Kota Mojokerto'],['sidoarjo','Sidoarjo','Kabupaten Sidoarjo'],['surabaya','Surabaya','Kota Surabaya'],['gresik','Gresik','Kabupaten Gresik'],['pasuruan','Pasuruan','Kabupaten/Kota Pasuruan'],['jombang','Jombang','Kabupaten Jombang']];
+const schema={'@context':'https://schema.org','@type':'CollectionPage','name':title,'url':canonical,'description':description};
+---
+<Layout {title} {description} {canonical} {schema}>
+<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Area layanan • Jawa Timur</div><h1>Service Area Essa Jaya</h1><p>Essa Jaya berlokasi di Dlanggu, Mojokerto dan melayani kebutuhan panel lantai, bata ringan, serta renovasi rumah di sejumlah wilayah Jawa Timur. Ketersediaan layanan, pengiriman, dan survey dikonfirmasi berdasarkan lokasi proyek.</p><div class="actions"><a class="btn" href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20cek%20layanan%20untuk%20lokasi%20proyek%20saya.">Cek area layanan</a><a class="btn alt" href="/panel-lantai/">Panel Lantai</a></div></div><div class="visual"><div class="visual-label"><span class="eyebrow" style="color:#d9c8a4">Dari Dlanggu, Mojokerto</span><strong>Jangkauan Proyek</strong><span>Konfirmasi area, akses dan kebutuhan sebelum penawaran.</span></div></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><div class="eyebrow">Kota & kabupaten</div><h2>Area layanan yang dapat dikonsultasikan</h2><p>Halaman lokasi dibuat untuk membantu calon pelanggan menemukan informasi yang relevan dengan lokasi proyek tanpa mengklaim adanya kantor atau cabang di kota tersebut.</p></div><div class="location-grid">{areas.map(([slug,name,region])=><a class="location" href={`/service-area/${slug}/`}><strong>{name}</strong><small style="display:block;color:var(--muted);font-weight:500;margin-top:5px">{region}</small></a>)}</div></div></section>
+<section class="section soft"><div class="container"><div class="grid-3"><div class="card"><h3>Panel lantai</h3><p>Material dan konsultasi pemasangan untuk kebutuhan dak/lantai bangunan.</p><a class="btn alt" href="/panel-lantai/">Pelajari panel lantai</a></div><div class="card"><h3>Bata ringan</h3><p>Pilihan bata ringan dengan stok, kondisi dan harga yang perlu dikonfirmasi sebelum transaksi.</p><a class="btn alt" href="/bata-ringan/">Pelajari bata ringan</a></div><div class="card"><h3>Renovasi rumah</h3><p>Ruang lingkup pekerjaan ditentukan berdasarkan kebutuhan dan kondisi proyek.</p><a class="btn alt" href="/jasa-renovasi/">Lihat jasa renovasi</a></div></div></div></section>
+<HowToOrder /><CTA />
+</Layout>

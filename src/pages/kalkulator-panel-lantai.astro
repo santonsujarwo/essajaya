@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HowToOrder from '../components/HowToOrder.astro';
+import CTA from '../components/CTA.astro';
+const title='Kalkulator Panel Lantai | Hitung Luas & Estimasi Kebutuhan - Essa Jaya';
+const description='Kalkulator sederhana untuk menghitung luas area panel lantai dan estimasi biaya berdasarkan kisaran harga yang dipublikasikan Essa Jaya.';
+const canonical='https://essajaya.com/kalkulator-panel-lantai/';
+const schema={'@context':'https://schema.org','@type':'WebApplication','name':'Kalkulator Panel Lantai Essa Jaya','url':canonical,'applicationCategory':'BusinessApplication','operatingSystem':'Any','description':description};
+---
+<Layout {title} {description} {canonical} {schema}>
+<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Tool gratis</div><h1>Kalkulator Panel Lantai</h1><p>Hitung luas area dan buat estimasi awal biaya panel lantai terpasang. Hasil kalkulator hanya estimasi; kebutuhan struktur, ukuran panel, akses dan kondisi lokasi harus dikonfirmasi sebelum pekerjaan.</p></div><div class="card"><label for="length"><strong>Panjang area (m)</strong></label><input id="length" type="number" min="0" step="0.1" value="6" style="width:100%;padding:14px;margin:8px 0 16px;border:1px solid var(--line);border-radius:10px"><label for="width"><strong>Lebar area (m)</strong></label><input id="width" type="number" min="0" step="0.1" value="8" style="width:100%;padding:14px;margin:8px 0 16px;border:1px solid var(--line);border-radius:10px"><label for="rate"><strong>Harga estimasi terpasang / m²</strong></label><input id="rate" type="number" min="0" step="1000" value="500000" style="width:100%;padding:14px;margin:8px 0 16px;border:1px solid var(--line);border-radius:10px"><div class="highlight"><strong>Luas:</strong> <span id="area">48</span> m²<br><strong>Estimasi biaya:</strong> Rp <span id="total">24.000.000</span></div><a id="wa" class="btn" href="https://wa.me/628226440796">Konsultasikan hasil</a></div></div></section>
+<section class="section"><div class="container article"><h2>Bagaimana hasil kalkulator digunakan?</h2><p>Perhitungan awal membantu memperkirakan skala pekerjaan. Essa Jaya menyebut kisaran paket terpasang berdasarkan luas, ukuran panel, lokasi, akses dan kondisi proyek. Harga aktual dapat berubah setelah survey dan penawaran.</p><h3>Rumus luas</h3><p>Luas = panjang × lebar. Untuk bentuk area yang tidak beraturan, pecah area menjadi beberapa bagian lalu jumlahkan hasilnya.</p><h3>Catatan penting</h3><p>Kalkulator ini bukan pengganti perhitungan struktur. Bentang, tumpuan, detail balok, beban dan metode pemasangan harus ditentukan berdasarkan kondisi bangunan dan spesifikasi produk.</p></div></section>
+<HowToOrder /><CTA />
+<script is:inline>
+const lengthEl=document.getElementById('length'),widthEl=document.getElementById('width'),rateEl=document.getElementById('rate'),areaEl=document.getElementById('area'),totalEl=document.getElementById('total'),waEl=document.getElementById('wa');
+function calc(){const l=Number(lengthEl.value)||0,w=Number(widthEl.value)||0,r=Number(rateEl.value)||0;const a=l*w;const t=a*r;areaEl.textContent=a.toLocaleString('id-ID',{maximumFractionDigits:2});totalEl.textContent=t.toLocaleString('id-ID');waEl.href='https://wa.me/628226440796?text='+encodeURIComponent(`Halo Essa Jaya, saya menghitung kebutuhan panel lantai sekitar ${a.toLocaleString('id-ID',{maximumFractionDigits:2})} m². Mohon bantu cek estimasinya.`)}[lengthEl,widthEl,rateEl].forEach(el=>el.addEventListener('input',calc));calc();
+</script>
+</Layout>

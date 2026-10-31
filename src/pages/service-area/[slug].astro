@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HowToOrder from '../../components/HowToOrder.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTA from '../../components/CTA.astro';
+
+const areas = {
+  mojokerto:{name:'Mojokerto',region:'Kabupaten/Kota Mojokerto',intro:'Essa Jaya berlokasi di Dlanggu, Mojokerto sehingga kebutuhan proyek di wilayah Mojokerto dapat dikonsultasikan untuk panel lantai, bata ringan, dan renovasi rumah.'},
+  sidoarjo:{name:'Sidoarjo',region:'Kabupaten Sidoarjo',intro:'Essa Jaya melayani permintaan proyek di Sidoarjo untuk panel lantai, material bangunan dan pekerjaan renovasi sesuai lokasi, akses, volume dan jadwal proyek.'},
+  surabaya:{name:'Surabaya',region:'Kota Surabaya',intro:'Kebutuhan panel lantai, bata ringan dan renovasi di Surabaya dapat dikonsultasikan dengan Essa Jaya. Pengiriman dan pekerjaan dikonfirmasi berdasarkan kondisi lokasi proyek.'},
+  gresik:{name:'Gresik',region:'Kabupaten Gresik',intro:'Essa Jaya dapat membantu kebutuhan material dan proyek di Gresik setelah lokasi, volume, akses pengiriman dan ruang lingkup pekerjaan dikonfirmasi.'},
+  pasuruan:{name:'Pasuruan',region:'Kabupaten/Kota Pasuruan',intro:'Proyek di Pasuruan dapat dikonsultasikan untuk panel lantai, bata ringan dan renovasi rumah. Penawaran disesuaikan dengan lokasi dan kebutuhan pekerjaan.'},
+  jombang:{name:'Jombang',region:'Kabupaten Jombang',intro:'Essa Jaya melayani konsultasi kebutuhan proyek di Jombang untuk panel lantai, bata ringan dan pekerjaan renovasi berdasarkan kondisi lapangan.'}
+};
+export function getStaticPaths(){return Object.entries(areas).map(([slug,area])=>({params:{slug},props:{area}}));}
+const {area}=Astro.props;
+const canonical=`https://essajaya.com/service-area/${Astro.params.slug}/`;
+const title=`Panel Lantai, Bata Ringan & Renovasi ${area.name} | Essa Jaya`;
+const description=`Layanan Essa Jaya untuk ${area.name}: panel lantai, bata ringan dan jasa renovasi rumah. Lokasi proyek, pengiriman, survey dan penawaran dikonfirmasi sesuai kebutuhan.`;
+const schema={'@context':'https://schema.org','@graph':[{'@type':'Service','name':`Layanan material & renovasi di ${area.name}`,'serviceType':['Panel lantai','Bata ringan','Renovasi rumah'],'provider':{'@id':'https://essajaya.com/#business'},'areaServed':{'@type':'AdministrativeArea','name':area.name},'url':canonical},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Beranda','item':'https://essajaya.com/'},{'@type':'ListItem','position':2,'name':'Service Area','item':'https://essajaya.com/service-area/'},{'@type':'ListItem','position':3,'name':area.name,'item':canonical}]}]};
+const faqs=[
+ [`Apakah Essa Jaya memiliki kantor cabang di ${area.name}?`,`Alamat bisnis Essa Jaya berada di Dlanggu, Mojokerto. Halaman ini menjelaskan area layanan, bukan alamat cabang. Ketersediaan pengiriman atau pekerjaan di ${area.name} dikonfirmasi berdasarkan proyek.`],
+ [`Apakah bisa survey lokasi di ${area.name}?`,`Survey dapat dikonsultasikan untuk proyek yang membutuhkan pengukuran atau pengecekan kondisi lokasi. Jadwal dan cakupan survey dikonfirmasi sebelum kunjungan.`],
+ [`Apakah panel lantai bisa dikirim ke ${area.name}?`,`Pengiriman bergantung pada volume, akses kendaraan, jarak dari lokasi Essa Jaya di Dlanggu dan kondisi proyek. Hubungi tim untuk pengecekan biaya dan ketersediaan.`]
+];
+---
+<Layout {title} {description} {canonical} {schema}>
+<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Service area • {area.region}</div><h1>Panel Lantai, Bata Ringan & Renovasi di {area.name}</h1><p>{area.intro}</p><div class="actions"><a class="btn" href={`https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20punya%20proyek%20di%20${encodeURIComponent(area.name)}.`}>Konsultasi proyek {area.name}</a><a class="btn alt" href="/service-area/">Lihat semua area</a></div></div><div class="visual"><div class="visual-label"><span class="eyebrow" style="color:#d9c8a4">Area proyek</span><strong>{area.name}</strong><span>Dilayani dari Dlanggu, Mojokerto berdasarkan kebutuhan proyek.</span></div></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><div class="eyebrow">Layanan</div><h2>Kebutuhan yang dapat dikonsultasikan di {area.name}</h2></div><div class="grid-3"><div class="card"><h3>Panel Lantai</h3><p>Panel lantai AAC untuk kebutuhan dak/lantai. Spesifikasi dan pemasangan disesuaikan dengan struktur proyek.</p><a class="btn alt" href="/panel-lantai/">Panel lantai</a></div><div class="card"><h3>Bata Ringan</h3><p>Material bata ringan untuk pekerjaan dinding dengan stok dan kondisi yang dikonfirmasi sebelum pembelian.</p><a class="btn alt" href="/bata-ringan/">Bata ringan</a></div><div class="card"><h3>Renovasi Rumah</h3><p>Pekerjaan renovasi, plafon, partisi, pengecatan, baja dan sipil sesuai ruang lingkup proyek.</p><a class="btn alt" href="/jasa-renovasi/">Jasa renovasi</a></div></div></div></section>
+<section class="section soft"><div class="container"><div class="grid-2"><div><div class="eyebrow">Local project planning</div><h2>Pengiriman, akses dan survey</h2><p>Biaya dan kelayakan pekerjaan tidak ditentukan hanya berdasarkan nama kota. Tim perlu mengetahui alamat atau titik proyek, luas/volume, akses kendaraan, kondisi bangunan dan jadwal pekerjaan sebelum memberikan penawaran final.</p></div><div class="card"><h3>Lokasi bisnis</h3><p>Essa Jaya<br>Dsn. Lengkong RT 05/RW 02<br>Kedunglengkong, Dlanggu<br>Kabupaten Mojokerto, Jawa Timur 61371</p><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=-7.5709,112.4654" target="_blank" rel="noopener noreferrer">Petunjuk arah ke Essa Jaya</a></div></div></div></section>
+<FAQ items={faqs} /><HowToOrder /><CTA />
+</Layout>

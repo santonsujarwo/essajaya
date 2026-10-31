@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HowToOrder from '../../components/HowToOrder.astro';
+const title='Artikel Panel Lantai, Bata Ringan & Renovasi | Essa Jaya';
+const description='Panduan dan artikel Essa Jaya tentang panel lantai, bata ringan, renovasi rumah, perencanaan biaya dan kebutuhan material bangunan.';
+const canonical='https://essajaya.com/blog/';
+const posts=[
+ ['panel-lantai-vs-cor-beton','Panel Lantai vs Cor Beton: Perbedaan Metode, Waktu dan Pertimbangan Biaya','Bandingkan karakteristik panel lantai dan cor beton dari sisi metode, waktu, material dan kondisi proyek.'],
+ ['cara-menghitung-kebutuhan-panel-lantai','Cara Menghitung Kebutuhan Panel Lantai','Panduan dasar menghitung luas area sebelum meminta estimasi material dan pemasangan.'],
+ ['panel-lantai-untuk-rumah-2-lantai','Panel Lantai untuk Rumah 2 Lantai','Hal yang perlu diperhatikan sebelum memilih panel lantai untuk lantai dua atau dak bangunan.'],
+ ['cara-memilih-bata-ringan','Cara Memilih Bata Ringan untuk Proyek Bangunan','Pertimbangan ukuran, kondisi material, volume, logistik dan kebutuhan dinding.'],
+ ['tips-merencanakan-renovasi-rumah','Tips Merencanakan Renovasi Rumah','Hal yang perlu disiapkan sebelum survey, penawaran dan pelaksanaan renovasi.']
+];
+const schema={'@context':'https://schema.org','@type':'CollectionPage','name':title,'url':canonical,'description':description};
+---
+<Layout {title} {description} {canonical} {schema}>
+<section class="hero"><div class="container hero-grid"><div><div class="eyebrow">Panduan</div><h1>Artikel & Panduan</h1><p>Konten edukasi untuk membantu memahami panel lantai, bata ringan, renovasi rumah dan perencanaan proyek sebelum berkonsultasi dengan Essa Jaya.</p></div><div class="visual"><div class="visual-label"><span class="eyebrow" style="color:#d9c8a4">Knowledge hub</span><strong>Material & Renovasi</strong><span>Informasi berdasarkan kebutuhan proyek.</span></div></div></div></section>
+<section class="section"><div class="container"><div class="grid-3">{posts.map(([slug,name,desc])=><article class="card"><div class="eyebrow">Panduan</div><h2 style="font-size:1.55rem;margin-top:10px">{name}</h2><p>{desc}</p><a class="btn alt" href={`/blog/${slug}/`}>Baca panduan</a></article>)}</div></div></section>
+<HowToOrder />
+</Layout>
