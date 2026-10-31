@@ -1,20 +1,28 @@
 ---
 const { title = 'Pertanyaan yang sering ditanyakan', items = [] } = Astro.props;
 const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: items.map(([question, answer]) => ({
-    '@type': 'Question',
-    name: question,
-    acceptedAnswer: { '@type': 'Answer', text: answer },
-  })),
+'@context': 'https://schema.org',
+'@type': 'FAQPage',
+mainEntity: items.map(([question, answer]) => ({
+'@type': 'Question',
+name: question,
+acceptedAnswer: { '@type': 'Answer', text: answer },
+})),
 };
 ---
+
 <section class="section soft">
   <div class="container">
-    <div class="section-head"><div class="eyebrow">FAQ</div><h2>{title}</h2></div>
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>{title}</h2>
+    </div>
     <div class="faq">
-      {items.map(([question, answer]) => <details><summary>{question}</summary><p style="margin-top:14px">{answer}</p></details>)}
+      {items.map(([question, answer]) =>
+      <details>
+        <summary>{question}</summary>
+        <p style="margin-top:14px">{answer}</p>
+      </details>)}
     </div>
   </div>
 </section>
