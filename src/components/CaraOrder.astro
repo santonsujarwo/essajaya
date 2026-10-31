@@ -18,15 +18,18 @@ const steps = [
       <a
         class="btn"
         href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20konsultasi%20kebutuhan%20proyek."
-      >Hubungi kami</a>
+        >Hubungi kami</a
+      >
     </div>
     <div class="order-process-steps">
-      {steps.map((step, index) => (
-        <div class="order-process-step">
-          <span class="order-process-number">{index + 1}</span>
-          <p>{step}</p>
-        </div>
-      ))}
+      {
+        steps.map((step, index) => (
+          <div class="order-process-step">
+            <span class="order-process-number">{index + 1}</span>
+            <p>{step}</p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
