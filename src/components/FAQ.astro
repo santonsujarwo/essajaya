@@ -1,16 +1,21 @@
 ---
-const faqs = Astro.props.items || [
-  ['Apakah harga panel lantai sudah termasuk ongkos kirim?','Harga material belum termasuk ongkos kirim. Ongkos kirim dihitung berdasarkan lokasi proyek. Untuk paket terpasang, biaya pengiriman dapat termasuk dalam penawaran sesuai kondisi proyek.'],
-  ['Berapa minimal order panel lantai?','Untuk paket terpasang, minimal order yang disebutkan Essa Jaya adalah 48 m². Proyek di bawah luas tersebut tetap dapat dikonsultasikan dengan penyesuaian harga.'],
-  ['Apakah tersedia jasa pemasangan?','Ya. Essa Jaya menyediakan pilihan material saja maupun paket material dan pemasangan. Survey lokasi dapat dilakukan sebelum penawaran final.'],
-  ['Berapa lama pemasangan panel lantai?','Untuk area sekitar 48–100 m², informasi di website menyebut estimasi 1–2 hari kerja. Durasi aktual bergantung pada kondisi dan akses proyek.'],
-  ['Apakah bisa membeli material saja?','Bisa. Material dapat dibeli jika pelanggan memiliki tukang sendiri yang berpengalaman memasang panel AAC.']
-];
+const { title = 'Pertanyaan yang sering ditanyakan', items = [] } = Astro.props;
 const schema = {
-  '@context':'https://schema.org',
-  '@type':'FAQPage',
-  'mainEntity': faqs.map(([q,a]) => ({'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}}))
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map(([question, answer]) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
 };
 ---
-<section class="section soft"><div class="container"><div class="section-head"><div class="eyebrow">FAQ</div><h2>Pertanyaan yang sering ditanyakan</h2></div><div class="faq">{faqs.map(([q,a]) => <details><summary>{q}</summary><p style="margin-top:14px">{a}</p></details>)}</div></div></section>
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<section class="section soft">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">FAQ</div><h2>{title}</h2></div>
+    <div class="faq">
+      {items.map(([question, answer]) => <details><summary>{question}</summary><p style="margin-top:14px">{answer}</p></details>)}
+    </div>
+  </div>
+</section>
+{items.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
