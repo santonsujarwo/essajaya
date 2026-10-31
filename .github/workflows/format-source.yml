@@ -1,0 +1,42 @@
+name: Format source code
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Format Astro, CSS, JavaScript, TypeScript, and JSON
+        run: |
+          npx --yes --package=prettier@3.6.2 --package=prettier-plugin-astro@0.14.1 prettier \
+            --plugin=prettier-plugin-astro \
+            --write "**/*.{astro,css,js,mjs,cjs,ts,tsx,jsx,json}"
+
+      - name: Commit formatted source
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "[skip ci] chore: format all source files with Prettier"
+            git push origin main
+          else
+            echo "All supported source files are already formatted."
+          fi
