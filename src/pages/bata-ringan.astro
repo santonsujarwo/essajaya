@@ -3,35 +3,45 @@ import Layout from '../layouts/Layout.astro';
 import CaraOrder from '../components/CaraOrder.astro';
 import CTA from '../components/CTA.astro';
 import FAQ from '../components/FAQ.astro';
+
 const faqItems = [
   [
-    'Apa perbedaan bata ringan dan bata merah?',
-    'Bata ringan umumnya memiliki bobot lebih rendah dan dimensi lebih presisi. Pemilihan material tetap perlu mempertimbangkan desain dinding dan kebutuhan proyek.',
+    'Apa itu bata ringan?',
+    'Bata ringan adalah material dinding berbasis beton ringan yang memiliki rongga udara kecil di dalam strukturnya. Jenis yang umum digunakan adalah AAC (Autoclaved Aerated Concrete), yang diproduksi melalui proses khusus dan pengerasan menggunakan uap bertekanan.',
   ],
   [
-    'Berapa ukuran bata ringan yang tersedia?',
-    'Ukuran berbeda menurut produsen dan stok. Hubungi Essa Jaya untuk memastikan dimensi, ketebalan, dan ketersediaan.',
+    'Apa bahan utama bata ringan AAC?',
+    'Bahan yang umum digunakan meliputi pasir silika, semen, kapur, gypsum, air, dan bahan pengembang seperti pasta atau bubuk aluminium. Komposisi setiap produsen dapat berbeda.',
+  ],
+  [
+    'Berapa ukuran bata ringan?',
+    'Ukuran yang umum dijumpai memiliki panjang sekitar 60 cm dan tinggi 20 cm, dengan pilihan ketebalan seperti 7,5 cm, 10 cm, 12,5 cm, 15 cm, atau 20 cm. Ketersediaan ukuran bergantung pada merek dan stok.',
+  ],
+  [
+    'Apa perbedaan bata ringan standar, KW2, dan reject palet?',
+    'Istilah tersebut merupakan kategori dagang atau kondisi material, bukan jenis teknis AAC yang baku. Kondisi fisik, toleransi ukuran, jumlah pecah, dan kelayakan penggunaan harus diperiksa sebelum pembelian.',
   ],
   [
     'Berapa kebutuhan bata ringan untuk satu meter persegi?',
-    'Jumlah bergantung pada ukuran bata dan ketebalan nat. Perhitungan menggunakan ukuran aktual produk serta luas bersih dinding.',
+    'Perhitungan bergantung pada dimensi aktual bata dan ketebalan nat. Untuk ukuran 60 × 20 cm, luas muka satu bata adalah 0,12 m² sehingga kebutuhan teoritis sekitar 8,33 buah per m², sebelum memperhitungkan potongan dan cadangan.',
   ],
   [
     'Perekat apa yang digunakan untuk bata ringan?',
-    'Pemasangan biasanya menggunakan mortar instan khusus bata ringan sesuai petunjuk produsen.',
+    'Pemasangan umumnya menggunakan mortar instan khusus bata ringan dengan ketebalan aplikasi mengikuti petunjuk produsen. Hindari menentukan campuran hanya berdasarkan perkiraan.',
   ],
   [
-    'Apakah tersedia bata ringan KW2 atau reject palet?',
-    'Pilihan kategori mengikuti stok. Kondisi fisik, toleransi ukuran, dan kecocokan penggunaan perlu diperiksa sebelum pembelian.',
+    'Apakah bata ringan bisa digunakan untuk semua dinding?',
+    'Bata ringan dapat digunakan untuk banyak kebutuhan dinding non-struktural. Detail dinding, pengaku, angkur, dan sambungan tetap harus mengikuti rancangan bangunan. Bata ringan bukan pengganti elemen struktur seperti kolom atau balok.',
   ],
   [
     'Apakah Essa Jaya melayani pengiriman?',
     'Pengiriman dikonsultasikan berdasarkan volume, alamat proyek, akses kendaraan, dan jadwal ketersediaan material.',
   ],
 ];
-const title = 'Bata Ringan Mojokerto | Material Bangunan - Essa Jaya';
+
+const title = 'Bata Ringan Mojokerto: Bahan, Ukuran & Pilihan Produk | Essa Jaya';
 const description =
-  'Bata ringan untuk kebutuhan dinding dan proyek bangunan di Mojokerto dan sekitarnya. Tersedia pilihan bata ringan standar, KW2, dan reject palet sesuai stok.';
+  'Informasi bata ringan untuk dinding bangunan di Mojokerto: pengertian, bahan AAC, ukuran, kategori produk, keunggulan, cara menghitung kebutuhan, dan pemesanan di Essa Jaya.';
 const canonical = 'https://essajaya.com/bata-ringan/';
 const schema = {
   '@context': 'https://schema.org',
@@ -41,7 +51,7 @@ const schema = {
       name: 'Bata Ringan',
       brand: { '@type': 'Brand', name: 'Essa Jaya' },
       url: canonical,
-      description: description,
+      description,
     },
     {
       '@type': 'BreadcrumbList',
@@ -55,14 +65,15 @@ const schema = {
 ---
 
 <Layout {title} {description} {canonical} {schema}>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Material bangunan • Mojokerto</div>
-        <h1>Bata Ringan Mojokerto</h1>
+  <section class="br-hero">
+    <div class="container br-hero-grid">
+      <div class="br-hero-copy">
+        <div class="eyebrow">Material bangunan · Mojokerto</div>
+        <h1>Bata Ringan untuk Kebutuhan Dinding Bangunan</h1>
         <p>
-          Essa Jaya menyediakan pilihan bata ringan untuk kebutuhan dinding dan pekerjaan bangunan.
-          Stok, kondisi, ukuran, dan harga perlu dikonfirmasi sebelum pemesanan.
+          Essa Jaya menyediakan pilihan bata ringan untuk pembangunan dan renovasi. Kenali bahan,
+          ukuran, karakteristik, serta hal yang perlu diperiksa sebelum menentukan material untuk
+          proyek Anda.
         </p>
         <div class="actions">
           <a
@@ -72,73 +83,300 @@ const schema = {
           >
           <a class="btn alt" href="/jasa-renovasi/">Jasa renovasi</a>
         </div>
+        <div class="br-hero-note">
+          Melayani kebutuhan material bangunan di Mojokerto dan wilayah sekitarnya.
+        </div>
       </div>
-      <div class="visual">
-        <div class="visual-label">
-          <span class="eyebrow" style="color:#d9c8a4">Material bangunan</span>
-          <strong>Bata Ringan</strong>
-          <span>Pilihan material untuk pekerjaan dinding.</span>
+      <div class="br-hero-visual">
+        <div class="br-visual-top"><span>AAC BLOCK</span><span>ESSA JAYA</span></div>
+        <div class="br-block-stack" aria-hidden="true">
+          <div class="br-block br-block-back"></div>
+          <div class="br-block br-block-mid"></div>
+          <div class="br-block br-block-front"><span>AUTOCLAVED AERATED CONCRETE</span></div>
+        </div>
+        <div class="br-visual-caption">
+          <strong>Bata Ringan AAC</strong>
+          <span>Material dinding beton ringan berpori</span>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="br-facts">
+    <div class="container br-facts-grid">
+      <div><span>Dimensi muka umum</span><strong>60 × 20 cm</strong></div>
+      <div><span>Variasi ketebalan</span><strong>7,5–20 cm</strong></div>
+      <div><span>Jenis material</span><strong>Beton ringan AAC</strong></div>
+      <div><span>Penggunaan umum</span><strong>Dinding bangunan</strong></div>
+    </div>
+  </section>
+
   <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Pilihan produk</div>
-        <h2>Pilihan bata ringan di Essa Jaya</h2>
-        <p>
-          Live site mencantumkan beberapa kategori. Karena kondisi stok dapat berubah, konsultasikan
-          kebutuhan dan kondisi material sebelum membeli.
-        </p>
+    <div class="container br-intro-grid">
+      <div class="br-section-kicker">
+        <div class="eyebrow">01 / Mengenal material</div>
+        <h2>Apa itu bata ringan?</h2>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Bata Ringan Standar</h3>
-          <p>Pilihan utama untuk kebutuhan dinding. Tanyakan ukuran, stok, dan harga terkini.</p>
-        </div>
-        <div class="card">
-          <h3>Bata Ringan KW2</h3>
-          <p>
-            Alternatif material yang tercantum pada katalog Essa Jaya. Kondisi dan penggunaan perlu
-            dikonfirmasi.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Reject Palet</h3>
-          <p>
-            Material reject palet hanya cocok untuk penggunaan tertentu setelah kondisi fisiknya
-            diperiksa.
-          </p>
+      <div class="br-prose">
+        <p class="br-lead">
+          Bata ringan adalah material pasangan dinding berbasis beton ringan yang dirancang agar
+          memiliki bobot lebih rendah dibandingkan bata beton padat pada volume yang sebanding.
+        </p>
+        <p>
+          Salah satu jenis yang banyak digunakan adalah AAC atau <em>Autoclaved Aerated Concrete</em>.
+          Material ini memiliki struktur berpori dengan rongga udara kecil yang terbentuk selama
+          proses produksi. Setelah dicetak dan dipotong sesuai ukuran, material menjalani proses
+          pengerasan menggunakan uap bertekanan di dalam autoclave.
+        </p>
+        <p>
+          Bata ringan diproduksi dalam bentuk blok dengan dimensi relatif presisi. Ukuran yang
+          seragam dan penggunaan mortar khusus membantu pekerjaan pasangan dinding menjadi lebih
+          terukur. Hasil akhir tetap dipengaruhi oleh kualitas material, keterampilan pemasangan,
+          serta detail konstruksi bangunan.
+        </p>
+        <div class="br-callout">
+          <strong>Catatan penggunaan</strong>
+          Bata ringan umumnya digunakan sebagai material dinding pengisi atau partisi. Material ini
+          tidak menggantikan kolom, balok, atau elemen struktur utama bangunan.
         </div>
       </div>
     </div>
   </section>
+
   <section class="section soft">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Pertimbangan pembelian</div>
-        <h2>Pilih bata ringan berdasarkan kebutuhan proyek</h2>
+        <div class="eyebrow">02 / Bahan & proses produksi</div>
+        <h2>Apa saja bahan pembuat bata ringan AAC?</h2>
+        <p>
+          Bata ringan AAC dibuat dari campuran mineral dan bahan pengembang. Komposisi serta
+          pengendalian proses produksi menentukan karakteristik akhir produk.
+        </p>
       </div>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Periksa kondisi material</h3>
-          <p>
-            Pastikan ukuran, kondisi fisik, jumlah, dan kualitas material sesuai kebutuhan sebelum
-            pengiriman.
-          </p>
+      <div class="br-material-grid">
+        <article>
+          <span>01</span>
+          <h3>Pasir silika</h3>
+          <p>Menjadi sumber silika dalam campuran dan diproses sesuai standar bahan baku pabrikan.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Semen & kapur</h3>
+          <p>Berperan sebagai bahan pengikat dan bagian dari reaksi pembentukan material AAC.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Gypsum & air</h3>
+          <p>Digunakan dalam formulasi campuran untuk membantu proses produksi dan pembentukan material.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Bahan pengembang</h3>
+          <p>Bahan berbasis aluminium membantu membentuk gelembung gas sehingga tercipta struktur berpori.</p>
+        </article>
+      </div>
+      <div class="br-process">
+        <div><strong>01</strong><span>Pencampuran bahan</span></div>
+        <div><strong>02</strong><span>Pembentukan pori & pencetakan</span></div>
+        <div><strong>03</strong><span>Pemotongan blok</span></div>
+        <div><strong>04</strong><span>Pengerasan di autoclave</span></div>
+      </div>
+      <p class="br-source-note">
+        Formulasi bahan dan parameter produksi dapat berbeda antarprodusen. Spesifikasi resmi
+        mengikuti informasi teknis dari merek yang dipilih.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">03 / Pilihan produk</div>
+        <h2>Kategori bata ringan di Essa Jaya</h2>
+        <p>
+          Kategori berikut mengikuti pilihan yang tercantum pada katalog Essa Jaya. Istilah ini
+          menjelaskan pengelompokan produk atau kondisi barang, bukan klasifikasi teknis AAC yang
+          berlaku universal.
+        </p>
+      </div>
+      <div class="br-product-list">
+        <article>
+          <span class="br-product-number">01</span>
+          <div>
+            <h3>Bata Ringan Standar</h3>
+            <p>
+              Pilihan material untuk kebutuhan pasangan dinding. Pastikan merek, dimensi, kondisi
+              fisik, dan jumlah sesuai spesifikasi pekerjaan.
+            </p>
+          </div>
+          <span class="br-product-tag">Pilihan utama</span>
+        </article>
+        <article>
+          <span class="br-product-number">02</span>
+          <div>
+            <h3>Bata Ringan KW2</h3>
+            <p>
+              Kategori dagang yang perlu diperiksa secara langsung. Perhatikan variasi dimensi,
+              kondisi sudut, retak, dan tingkat kerusakan sebelum menentukan penggunaannya.
+            </p>
+          </div>
+          <span class="br-product-tag">Periksa kondisi</span>
+        </article>
+        <article>
+          <span class="br-product-number">03</span>
+          <div>
+            <h3>Reject Palet</h3>
+            <p>
+              Material dengan kondisi yang perlu diseleksi. Kelayakan pemakaian bergantung pada
+              tingkat kerusakan dan kebutuhan pekerjaan, sehingga pemeriksaan fisik sangat penting.
+            </p>
+          </div>
+          <span class="br-product-tag">Seleksi material</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">04 / Ukuran bata ringan</div>
+        <h2>Dimensi bata ringan yang umum digunakan</h2>
+        <p>
+          Blok AAC umumnya memiliki panjang dan tinggi yang seragam, sementara ketebalan dipilih
+          sesuai kebutuhan dinding. Ukuran aktual dan ketersediaan perlu dikonfirmasi ke pemasok.
+        </p>
+      </div>
+      <div class="br-size-layout">
+        <div class="br-size-visual">
+          <div class="br-size-block">
+            <span class="br-size-length">60 cm</span>
+            <span class="br-size-height">20 cm</span>
+            <span class="br-size-thickness">Ketebalan bervariasi</span>
+          </div>
+          <p>Ilustrasi dimensi blok, tidak berskala.</p>
         </div>
-        <div class="card">
-          <h3>Perhitungkan logistik</h3>
-          <p>
-            Biaya pengiriman dipengaruhi lokasi proyek, volume, dan akses kendaraan. Tim dapat
-            membantu estimasi setelah lokasi diketahui.
+        <div class="br-size-content">
+          <div class="table-wrap">
+            <table class="price-table br-size-table">
+              <thead><tr><th>Dimensi</th><th>Ukuran umum</th></tr></thead>
+              <tbody>
+                <tr><td>Panjang</td><td>60 cm</td></tr>
+                <tr><td>Tinggi</td><td>20 cm</td></tr>
+                <tr><td>Ketebalan</td><td>7,5 cm</td></tr>
+                <tr><td>Ketebalan</td><td>10 cm</td></tr>
+                <tr><td>Ketebalan</td><td>12,5 cm</td></tr>
+                <tr><td>Ketebalan</td><td>15 cm</td></tr>
+                <tr><td>Ketebalan</td><td>20 cm</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="br-source-note">
+            Daftar di atas merupakan ukuran yang umum dijumpai di pasaran, bukan jaminan semua
+            ukuran tersedia di Essa Jaya. Konfirmasikan merek dan stok sebelum pemesanan.
           </p>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">05 / Karakteristik & keunggulan</div>
+        <h2>Mengapa bata ringan digunakan untuk dinding?</h2>
+        <p>
+          Karakteristik AAC menawarkan beberapa pertimbangan praktis dalam pekerjaan dinding.
+          Performa aktual bergantung pada mutu produk, detail desain, dan kualitas pemasangan.
+        </p>
+      </div>
+      <div class="br-benefit-grid">
+        <article><span>01</span><h3>Bobot lebih ringan</h3><p>Struktur berpori membuat berat material lebih rendah dibandingkan sejumlah material pasangan konvensional.</p></article>
+        <article><span>02</span><h3>Dimensi presisi</h3><p>Blok dipotong dari hasil produksi pabrik sehingga ukuran relatif seragam dan mudah ditata.</p></article>
+        <article><span>03</span><h3>Pemasangan terukur</h3><p>Penggunaan mortar khusus dengan lapisan tipis membantu mengatur ketebalan sambungan.</p></article>
+        <article><span>04</span><h3>Mudah dipotong</h3><p>Material dapat dipotong menggunakan alat yang sesuai untuk menyesuaikan bukaan dan detail dinding.</p></article>
+        <article><span>05</span><h3>Karakter termal</h3><p>Rongga udara pada AAC membantu menghambat perpindahan panas dibandingkan material padat tertentu.</p></article>
+        <article><span>06</span><h3>Permukaan relatif rata</h3><p>Dimensi yang seragam dapat membantu menghasilkan bidang dinding yang lebih teratur jika dipasang dengan benar.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container br-compare-layout">
+      <div class="br-compare-intro">
+        <div class="eyebrow">06 / Perbandingan material</div>
+        <h2>Bata ringan atau bata merah?</h2>
+        <p>
+          Keduanya dapat digunakan sebagai material pasangan dinding. Pilihan terbaik bergantung
+          pada desain, kebutuhan ruang, ketersediaan tenaga, anggaran, dan spesifikasi proyek.
+        </p>
+      </div>
+      <div class="table-wrap">
+        <table class="price-table br-compare-table">
+          <thead><tr><th>Pertimbangan</th><th>Bata ringan AAC</th><th>Bata merah</th></tr></thead>
+          <tbody>
+            <tr><td>Bobot</td><td>Relatif lebih ringan</td><td>Umumnya lebih berat</td></tr>
+            <tr><td>Dimensi</td><td>Lebih seragam dari produksi pabrik</td><td>Dapat bervariasi</td></tr>
+            <tr><td>Perekat</td><td>Mortar khusus bata ringan</td><td>Umumnya mortar pasangan konvensional</td></tr>
+            <tr><td>Pemotongan</td><td>Dapat dipotong dengan alat yang sesuai</td><td>Dapat dipotong atau dibelah</td></tr>
+            <tr><td>Pelaksanaan</td><td>Memerlukan teknik dan mortar yang sesuai sistem AAC</td><td>Mengikuti teknik pasangan bata merah</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">07 / Menghitung kebutuhan</div>
+        <h2>Bagaimana menghitung kebutuhan bata ringan?</h2>
+        <p>
+          Perhitungan awal dapat dilakukan dari luas bersih dinding dan luas muka satu blok.
+          Gunakan dimensi produk yang benar-benar akan dibeli.
+        </p>
+      </div>
+      <div class="br-calc-grid">
+        <div class="br-calc-main">
+          <span class="br-calc-label">Contoh ukuran blok</span>
+          <strong>60 × 20 cm</strong>
+          <p>Luas muka satu blok = 0,60 m × 0,20 m = 0,12 m².</p>
+          <div class="br-calc-result">
+            <span>Kebutuhan teoritis</span>
+            <strong>± 8,33 buah / m²</strong>
+          </div>
+        </div>
+        <div class="br-calc-steps">
+          <div><strong>01</strong><span>Hitung panjang × tinggi setiap bidang dinding.</span></div>
+          <div><strong>02</strong><span>Kurangi luas pintu, jendela, dan bukaan lainnya.</span></div>
+          <div><strong>03</strong><span>Kalikan luas bersih dengan kebutuhan per m² berdasarkan ukuran blok.</span></div>
+          <div><strong>04</strong><span>Tambahkan cadangan untuk potongan dan material rusak sesuai kondisi proyek.</span></div>
+        </div>
+      </div>
+      <div class="br-callout">
+        <strong>Contoh ini bukan jumlah pembelian final</strong>
+        Kebutuhan aktual dipengaruhi ukuran blok, ketebalan nat, pola pemasangan, potongan, dan
+        kondisi lapangan. Minta perhitungan berdasarkan ukuran serta denah proyek Anda.
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">08 / Sebelum membeli</div>
+        <h2>Hal yang perlu diperiksa saat memilih bata ringan</h2>
+      </div>
+      <div class="br-check-grid">
+        <article><span>01</span><h3>Dimensi blok</h3><p>Periksa panjang, tinggi, dan ketebalan agar sesuai gambar serta kebutuhan dinding.</p></article>
+        <article><span>02</span><h3>Kondisi fisik</h3><p>Cek retak, sudut pecah, permukaan, dan keseragaman ukuran terutama untuk kategori non-standar.</p></article>
+        <article><span>03</span><h3>Volume material</h3><p>Hitung luas bersih dinding dan cadangan potongan sebelum menentukan jumlah pembelian.</p></article>
+        <article><span>04</span><h3>Pengiriman</h3><p>Pastikan akses kendaraan, cara bongkar, lokasi penyimpanan, dan jadwal kedatangan material.</p></article>
+      </div>
+    </div>
+  </section>
+
   <CaraOrder />
-  <FAQ title="FAQ Bata Ringan" items={faqItems} />
+  <FAQ title="Pertanyaan seputar bata ringan" items={faqItems} />
   <CTA />
 </Layout>
