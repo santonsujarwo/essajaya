@@ -65,7 +65,8 @@ const allHtml = [...byPath.values()].join('\n');
 for (const forbidden of ['628226440796', '081233516411', 'href="#"', 'E-E-A-T']) {
   if (allHtml.includes(forbidden)) errors.push(`Forbidden content found: ${forbidden}`);
 }
-if (!allHtml.includes('6282264460796')) errors.push('Correct WhatsApp number not found in built HTML.');
+if (!allHtml.includes('6282264460796'))
+  errors.push('Correct WhatsApp number not found in built HTML.');
 
 if (errors.length) {
   console.error(errors.map((error) => `- ${error}`).join('\n'));
