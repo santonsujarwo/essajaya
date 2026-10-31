@@ -12,7 +12,7 @@ const locked = {
     title: 'Harga Panel Lantai per M² Terbaru 2026 - essajaya',
     h1: 'Harga panel lantai mojokerto',
     description:
-      'Cek kisaran harga panel lantai per m² harga material & terpasang. Distributor panel lantai Mojokerto – Essa Jaya. Survey gratis, hubungi sekarang!',
+      'Cek harga panel lantai Mojokerto per m² dan per lembar, pilihan material AAC, paket terpasang, simulasi biaya, serta faktor yang memengaruhi harga. Konsultasi dengan Essa Jaya.',
   },
   '/jasa-renovasi/': {
     title: 'Jasa Renovasi Rumah Mojokerto - essajaya',
