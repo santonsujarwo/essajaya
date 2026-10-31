@@ -247,7 +247,7 @@ p {
   background: #fff;
 }
 .card h3 {
-  margin:20px 0 10px 0;
+  margin: 20px 0 10px 0;
 }
 .card p {
   font-size: 15px;
@@ -667,7 +667,7 @@ summary {
   }
 }
 @media (max-width: 820px) {
-  .products .product-card{
+  .products .product-card {
     border-bottom: 1px solid var(--line);
   }
   .menu-toggle {
@@ -1086,7 +1086,7 @@ summary {
 .blog-section {
   padding: 60px 0 70px;
   background: #fff;
-  border-bottom:0;
+  border-bottom: 0;
 }
 
 .blog-section > .container {
