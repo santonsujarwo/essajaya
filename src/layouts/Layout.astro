@@ -82,5 +82,27 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, 'https://essajaya.
         ⌖ Petunjuk arah
       </a>
     </div>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      const trackEvent = (event, detail = {}) => window.dataLayer.push({ event, ...detail });
+      document.addEventListener('click', (event) => {
+        const link = event.target.closest('a');
+        if (!link) return;
+        if (link.href.includes('wa.me')) trackEvent('click_whatsapp', { page: location.pathname, button_location: link.dataset.cta || 'unspecified' });
+        if (link.href.startsWith('tel:')) trackEvent('click_call', { page: location.pathname });
+        if (link.href.includes('google.com/maps')) trackEvent('click_directions', { page: location.pathname });
+        if (link.href.includes('instagram.com') || link.href.includes('facebook.com') || link.href.includes('tiktok.com') || link.href.includes('youtube.com')) trackEvent('click_social', { page: location.pathname, destination: link.href });
+        if (link.href.includes('google.com/search?q=essajaya')) trackEvent('click_google_reviews', { page: location.pathname });
+      });
+      let scrollTracked = false;
+      window.addEventListener('scroll', () => {
+        if (scrollTracked) return;
+        const denominator = document.documentElement.scrollHeight - window.innerHeight;
+        if (denominator > 0 && window.scrollY / denominator >= 0.75) {
+          scrollTracked = true;
+          trackEvent('scroll_75', { page: location.pathname });
+        }
+      }, { passive: true });
+    </script>
   </body>
 </html>
