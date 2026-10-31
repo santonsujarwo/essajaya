@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CaraOrder from '../components/CaraOrder.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
 
@@ -427,6 +428,7 @@ const priceUrl = '/harga-panel-lantai-2026/';
     </div>
   </section>
 
+  <CaraOrder />
   <FAQ title="Pertanyaan seputar panel lantai" items={faqItems} />
   <CTA />
 </Layout>
