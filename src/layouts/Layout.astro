@@ -3,7 +3,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
 
-const { title, description, canonical, image = '/og-image.svg', schema = null } = Astro.props;
+const { title, description, canonical, image = 'https://essajaya.com/wp-content/uploads/2025/10/unnamed.webp', schema = null } = Astro.props;
 
 const canonicalUrl = canonical || new URL(Astro.url.pathname, 'https://essajaya.com').toString();
 ---
@@ -18,14 +18,20 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, 'https://essajaya.
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={Astro.url.pathname === '/' ? 'website' : 'article'} />
     <meta property="og:site_name" content="Essa Jaya" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`https://essajaya.com${image}`} />
+    <meta property="og:image" content={image.startsWith('http') ? image : `https://essajaya.com${image}`} />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image.startsWith('http') ? image : `https://essajaya.com${image}`} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+    <meta name="ahrefs-site-verification" content="67914276d10857afe139a44ffbe5ff814b9afe922509b7e1414653d4f76673c5" />
+    <meta property="og:locale" content="id_ID" />
     <meta name="theme-color" content="#c52826" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
