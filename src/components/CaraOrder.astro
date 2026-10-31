@@ -1,0 +1,32 @@
+---
+const steps = [
+  'Hubungi tim Essa Jaya melalui WhatsApp dan sampaikan kebutuhan material atau jasa, lokasi proyek, serta informasi lain yang diperlukan.',
+  'Tim kami akan membantu mengidentifikasi kebutuhan proyek, memberikan informasi terkait produk atau layanan, serta melakukan survey lokasi.',
+  'Setelah kebutuhan dan penawaran disepakati, tim akan mengoordinasikan proses pemesanan, pengiriman material, atau pelaksanaan pekerjaan sesuai jenis layanan yang dipilih.',
+];
+---
+
+<section class="order-process">
+  <div class="container order-process-grid">
+    <div class="order-process-intro">
+      <div class="eyebrow">Cara order</div>
+      <h2>Proses Pemesanan</h2>
+      <p>
+        Mulai dari konsultasi kebutuhan hingga proses pemesanan atau pelaksanaan pekerjaan, Essa
+        Jaya membantu Anda menemukan solusi material dan jasa yang sesuai dengan kebutuhan proyek.
+      </p>
+      <a
+        class="btn"
+        href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20konsultasi%20kebutuhan%20proyek."
+      >Hubungi kami</a>
+    </div>
+    <div class="order-process-steps">
+      {steps.map((step, index) => (
+        <div class="order-process-step">
+          <span class="order-process-number">{index + 1}</span>
+          <p>{step}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
