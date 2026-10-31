@@ -1,22 +1,32 @@
 ---
 const navItems = [
-{ label: 'Beranda', href: '/' },
-{ label: 'Panel lantai', href: '/panel-lantai/' },
-{ label: 'Bata ringan', href: '/bata-ringan/' },
-{ label: 'Renovasi', href: '/jasa-renovasi/' },
-{ label: 'Hubungi kami', href: '/hubungi-kami/' },
+  { label: 'Beranda', href: '/' },
+  { label: 'Panel lantai', href: '/panel-lantai/' },
+  { label: 'Bata ringan', href: '/bata-ringan/' },
+  { label: 'Renovasi', href: '/jasa-renovasi/' },
+  { label: 'Hubungi kami', href: '/hubungi-kami/' },
 ];
 ---
 
 <header class="nav">
   <div class="container navin">
     <a class="brand-logo" href="/" aria-label="Essa Jaya Beranda">
-      <img src="/images/logo-essa.png" width="100" height="100" alt="Essa Jaya - Bata Ringan dan Panel Lantai" />
+      <img
+        src="/images/logo-essa.png"
+        width="100"
+        height="100"
+        alt="Essa Jaya - Bata Ringan dan Panel Lantai"
+      />
     </a>
     <button class="menu-toggle" aria-label="Buka navigasi" aria-expanded="false">☰</button>
     <nav class="links" aria-label="Navigasi utama">
-      {navItems.map((item) =>
-      <a href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.label}</a>)}
+      {
+        navItems.map((item) => (
+          <a href={item.href} aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>
@@ -24,8 +34,8 @@ const navItems = [
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.links');
   toggle?.addEventListener('click', () => {
-  const opened = links?.classList.toggle('open') ?? false;
-  toggle.setAttribute('aria-expanded', String(opened));
-  toggle.textContent = opened ? '×' : '☰';
+    const opened = links?.classList.toggle('open') ?? false;
+    toggle.setAttribute('aria-expanded', String(opened));
+    toggle.textContent = opened ? '×' : '☰';
   });
 </script>

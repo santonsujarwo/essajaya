@@ -3,16 +3,61 @@ import Layout from '../layouts/Layout.astro';
 import HowToOrder from '../components/HowToOrder.astro';
 import CTA from '../components/CTA.astro';
 import FAQ from '../components/FAQ.astro';
-const faqItems = [["Pekerjaan renovasi apa saja yang dapat dikonsultasikan?","Essa Jaya menerima konsultasi bangun dan renovasi, plafon dan partisi, pengecatan, konstruksi baja, serta pekerjaan sipil sesuai ruang lingkup proyek."],
-["Apakah Essa Jaya melayani survey lokasi?","Survey dapat dibahas untuk memahami kondisi bangunan, akses lokasi, ukuran pekerjaan, dan kebutuhan material."],
-["Bagaimana mendapatkan estimasi biaya renovasi?","Kirimkan alamat proyek, foto kondisi bangunan, kebutuhan pekerjaan, ukuran area, dan target waktu. Estimasi disesuaikan setelah ruang lingkup jelas."],
-["Apakah biaya sudah termasuk material dan tenaga kerja?","Komponen biaya dijelaskan dalam penawaran. Pastikan rincian material, tenaga kerja, pekerjaan tambahan, pengiriman, dan pengecualian tertulis."],
-["Berapa lama proses renovasi rumah?","Durasi bergantung pada luas, kondisi bangunan, kompleksitas, ketersediaan material, cuaca, dan perubahan pekerjaan."],
-["Bagaimana proses pemesanan jasa renovasi?","Mulai dari konsultasi, survey lokasi, penyusunan ruang lingkup dan penawaran, persetujuan, lalu penjadwalan pekerjaan."]];
-const title='Jasa Renovasi Rumah Mojokerto | Essa Jaya';
-const description='Jasa renovasi rumah di Mojokerto untuk bangun rumah, perbaikan, plafon, pengecatan, konstruksi baja dan pekerjaan sipil. Konsultasikan proyek dengan Essa Jaya.';
-const canonical='https://essajaya.com/jasa-renovasi/';
-const schema={'@context':'https://schema.org','@graph':[{'@type':'Service','name':'Jasa Renovasi Rumah Mojokerto','serviceType':'Renovasi rumah','provider':{'@type':'LocalBusiness','name':'ESSA JAYA','url':'https://essajaya.com/','telephone':'+628226440796'},'areaServed':['Mojokerto','Sidoarjo','Surabaya','Gresik','Pasuruan','Jombang'],'url':canonical},{'@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Beranda','item':'https://essajaya.com/'},{'@type':'ListItem','position':2,'name':'Jasa Renovasi Rumah','item':canonical}]}]};
+const faqItems = [
+  [
+    'Pekerjaan renovasi apa saja yang dapat dikonsultasikan?',
+    'Essa Jaya menerima konsultasi bangun dan renovasi, plafon dan partisi, pengecatan, konstruksi baja, serta pekerjaan sipil sesuai ruang lingkup proyek.',
+  ],
+  [
+    'Apakah Essa Jaya melayani survey lokasi?',
+    'Survey dapat dibahas untuk memahami kondisi bangunan, akses lokasi, ukuran pekerjaan, dan kebutuhan material.',
+  ],
+  [
+    'Bagaimana mendapatkan estimasi biaya renovasi?',
+    'Kirimkan alamat proyek, foto kondisi bangunan, kebutuhan pekerjaan, ukuran area, dan target waktu. Estimasi disesuaikan setelah ruang lingkup jelas.',
+  ],
+  [
+    'Apakah biaya sudah termasuk material dan tenaga kerja?',
+    'Komponen biaya dijelaskan dalam penawaran. Pastikan rincian material, tenaga kerja, pekerjaan tambahan, pengiriman, dan pengecualian tertulis.',
+  ],
+  [
+    'Berapa lama proses renovasi rumah?',
+    'Durasi bergantung pada luas, kondisi bangunan, kompleksitas, ketersediaan material, cuaca, dan perubahan pekerjaan.',
+  ],
+  [
+    'Bagaimana proses pemesanan jasa renovasi?',
+    'Mulai dari konsultasi, survey lokasi, penyusunan ruang lingkup dan penawaran, persetujuan, lalu penjadwalan pekerjaan.',
+  ],
+];
+const title = 'Jasa Renovasi Rumah Mojokerto | Essa Jaya';
+const description =
+  'Jasa renovasi rumah di Mojokerto untuk bangun rumah, perbaikan, plafon, pengecatan, konstruksi baja dan pekerjaan sipil. Konsultasikan proyek dengan Essa Jaya.';
+const canonical = 'https://essajaya.com/jasa-renovasi/';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Service',
+      name: 'Jasa Renovasi Rumah Mojokerto',
+      serviceType: 'Renovasi rumah',
+      provider: {
+        '@type': 'LocalBusiness',
+        name: 'ESSA JAYA',
+        url: 'https://essajaya.com/',
+        telephone: '+628226440796',
+      },
+      areaServed: ['Mojokerto', 'Sidoarjo', 'Surabaya', 'Gresik', 'Pasuruan', 'Jombang'],
+      url: canonical,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Beranda', item: 'https://essajaya.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Jasa Renovasi Rumah', item: canonical },
+      ],
+    },
+  ],
+};
 ---
 
 <Layout {title} {description} {canonical} {schema}>
@@ -21,9 +66,17 @@ const schema={'@context':'https://schema.org','@graph':[{'@type':'Service','name
       <div>
         <div class="eyebrow">Jasa konstruksi • Mojokerto</div>
         <h1>Jasa Renovasi Rumah Mojokerto</h1>
-        <p>Essa Jaya menyediakan layanan renovasi dan pekerjaan konstruksi untuk kebutuhan rumah dan bangunan. Ruang lingkup pekerjaan, kondisi lokasi, material, dan estimasi biaya ditentukan setelah konsultasi.</p>
+        <p>
+          Essa Jaya menyediakan layanan renovasi dan pekerjaan konstruksi untuk kebutuhan rumah dan
+          bangunan. Ruang lingkup pekerjaan, kondisi lokasi, material, dan estimasi biaya ditentukan
+          setelah konsultasi.
+        </p>
         <div class="actions">
-          <a class="btn" href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20konsultasi%20jasa%20renovasi.">Konsultasi renovasi</a>
+          <a
+            class="btn"
+            href="https://wa.me/628226440796?text=Halo%20Essa%20Jaya%2C%20saya%20ingin%20konsultasi%20jasa%20renovasi."
+            >Konsultasi renovasi</a
+          >
           <a class="btn alt" href="/hubungi-kami/">Informasi layanan</a>
         </div>
       </div>
@@ -75,7 +128,11 @@ const schema={'@context':'https://schema.org','@graph':[{'@type':'Service','name
       <div class="section-head">
         <div class="eyebrow">E-E-A-T</div>
         <h2>Informasi proyek yang transparan</h2>
-        <p>Untuk setiap pekerjaan yang dipublikasikan, kami sarankan mencantumkan jenis pekerjaan, lokasi tingkat kota/kabupaten, ruang lingkup, foto sebelum-sesudah, dan periode pekerjaan. Informasi tersebut menjadi bukti pengalaman yang lebih bermakna daripada klaim umum.</p>
+        <p>
+          Untuk setiap pekerjaan yang dipublikasikan, kami sarankan mencantumkan jenis pekerjaan,
+          lokasi tingkat kota/kabupaten, ruang lingkup, foto sebelum-sesudah, dan periode pekerjaan.
+          Informasi tersebut menjadi bukti pengalaman yang lebih bermakna daripada klaim umum.
+        </p>
       </div>
     </div>
   </section>
