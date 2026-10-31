@@ -1430,3 +1430,13 @@ summary {
     font-size: 18px;
   }
 }
+
+
+/* Override legacy connector and number pseudo-elements from earlier styles. */
+.order-grid > div:last-child::before {
+  content: none;
+}
+
+.order-number::before {
+  content: none;
+}
