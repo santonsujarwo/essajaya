@@ -1268,8 +1268,8 @@ summary {
   text-decoration: none;
 }
 .product-card-link:hover {
-  border-color: var(--red);
-  transform: translateY(-3px);
+  border-color: inherit;
+  transform: none;
 }
 .blog-card-link:hover .blog-thumb {
   opacity: 0.9;
