@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CaraOrder from '../components/CaraOrder.astro';
 import CTA from '../components/CTA.astro';
 import FAQ from '../components/FAQ.astro';
 const faqItems = [
@@ -135,6 +136,7 @@ const schema = {
       </div>
     </div>
   </section>
+  <CaraOrder />
   <FAQ title="FAQ Jasa Renovasi" items={faqItems} />
   <CTA />
 </Layout>
