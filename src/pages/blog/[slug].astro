@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts, articleSections } from '../../data/blog.js';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const title = `${post.title} | Essa Jaya`;
+const description = post.description;
+const canonical = `https://essajaya.com/blog/${post.slug}/`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title,
+  description,
+  image: post.image,
+  mainEntityOfPage: canonical,
+  url: canonical,
+  author: { '@type': 'Organization', name: 'Essa Jaya' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Essa Jaya',
+    url: 'https://essajaya.com/',
+  },
+};
+---
+
+<Layout {title} {description} {canonical} image={post.image} {schema}>
+  <section class="section soft">
+    <div class="container">
+      <div class="article">
+        <div class="breadcrumb">
+          <a href="/">Beranda</a> / <a href="/blog/">Blog</a> / {post.title}
+        </div>
+        <div class="eyebrow">Panduan Essa Jaya</div>
+        <h1>{post.title}</h1>
+        <p>{post.description}</p>
+        <img
+          class="blog-thumb"
+          src={post.image}
+          alt={post.imageAlt}
+          loading="eager"
+          style="width:100%;height:auto;max-height:460px;object-fit:cover;border-radius:12px;margin:24px 0"
+        />
+        {articleSections.map((section) => (
+          <>
+            <h2>{section.heading}</h2>
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {section.list && (
+              <ul>
+                {section.list.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </>
+        ))}
+        <div class="highlight">
+          <strong>Informasi proyek:</strong> Kebutuhan material dan pekerjaan dapat berbeda
+          berdasarkan ukuran, kondisi bangunan, spesifikasi produk, serta lokasi proyek. Periksa
+          kembali detail teknis sebelum menentukan kebutuhan akhir.
+        </div>
+        <p><a href="/blog/">← Kembali ke semua artikel</a></p>
+      </div>
+    </div>
+  </section>
+</Layout>
