@@ -1084,9 +1084,13 @@ summary {
   padding: 60px 0 70px;
   background: #fff;
 }
+
+.blog-section > .container {
+  max-width: 1080px;
+}
 .blog-intro {
-  max-width: none;
-  margin: 0 0 24px;
+  max-width: 100%;
+  margin: 0 0 26px;
   text-align: center;
 }
 .blog-intro h2 {
@@ -1094,10 +1098,11 @@ summary {
   font-size: 28px;
   line-height: 1.2;
 }
-.blog-grid {
+.blog-section .blog-grid {
+  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
-  gap: 18px;
+  gap: 22px;
 }
 .blog-card {
   display: flex;
@@ -1108,12 +1113,12 @@ summary {
   background: transparent;
   box-shadow: none;
 }
-.blog-thumb {
+.blog-section .blog-thumb {
   display: block;
   width: 100%;
-  aspect-ratio: 1.88 / 1;
+  aspect-ratio: 2.55 / 1;
   height: auto;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   object-fit: cover;
   background: #d9d9d9;
 }
@@ -1124,25 +1129,25 @@ summary {
   align-items: flex-start;
   gap: 8px;
 }
-.blog-card h3 {
+.blog-section .blog-card h3 {
   margin: 0;
   color: #111;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
-.blog-card p {
+.blog-section .blog-card p {
   margin: 0;
   color: #111;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.45;
 }
-.blog-card .text-link {
+.blog-section .blog-card .text-link {
   margin: auto 0 0;
   padding-top: 8px;
   color: var(--red);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.4;
 }
 /* Responsive behavior for the two homepage sections */
@@ -1202,12 +1207,16 @@ summary {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  .blog-thumb {
-    aspect-ratio: 1.88 / 1;
+  .blog-section .blog-thumb {
+    aspect-ratio: 2.2 / 1;
     margin-bottom: 14px;
   }
-  .blog-card h3 {
-    font-size: 18px;
+  .blog-section .blog-card h3 {
+    font-size: 16px;
+  }
+  .blog-section .blog-card p,
+  .blog-section .blog-card .text-link {
+    font-size: 13px;
   }
 }
 
