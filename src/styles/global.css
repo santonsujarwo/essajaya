@@ -1249,3 +1249,37 @@ summary {
 .order-number::before {
   content: none;
 }
+
+
+/* Full-card links on homepage */
+.product-card-link,
+.blog-card-link {
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+.product-card-link:hover,
+.blog-card-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.product-card-link:hover {
+  border-color: var(--red);
+  transform: translateY(-3px);
+}
+.blog-card-link:hover .blog-thumb {
+  opacity: 0.9;
+}
+.product-card-link:focus-visible,
+.blog-card-link:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+.blog-card-link .text-link {
+  display: inline-flex;
+}
