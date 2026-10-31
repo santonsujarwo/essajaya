@@ -1268,7 +1268,6 @@ summary {
   text-decoration: none;
 }
 .product-card-link:hover {
-  border-color: inherit;
   transform: none;
 }
 .blog-card-link:hover .blog-thumb {
