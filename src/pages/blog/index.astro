@@ -1,52 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const title = 'Artikel Panel Lantai, Bata Ringan & Renovasi | Essa Jaya';
+import { posts } from '../../data/blog.js';
+
+const title = 'Blog Material Bangunan & Renovasi | Essa Jaya';
 const description =
-  'Panduan dan artikel Essa Jaya tentang panel lantai, bata ringan, renovasi rumah, perencanaan biaya dan kebutuhan material bangunan.';
+  'Artikel dan panduan Essa Jaya seputar panel lantai, bata ringan, konstruksi, dan renovasi rumah.';
 const canonical = 'https://essajaya.com/blog/';
-const posts = [
-  [
-    'panel-lantai-vs-cor-beton',
-    'Panel Lantai vs Cor Beton: Perbedaan Metode, Waktu dan Pertimbangan Biaya',
-    'Bandingkan karakteristik panel lantai dan cor beton dari sisi metode, waktu, material dan kondisi proyek.',
-    'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg',
-    'Pekerja konstruksi di lokasi proyek',
-  ],
-  [
-    'cara-menghitung-kebutuhan-panel-lantai',
-    'Cara Menghitung Kebutuhan Panel Lantai',
-    'Panduan dasar menghitung luas area sebelum meminta estimasi material dan pemasangan.',
-    'https://images.pexels.com/photos/834892/pexels-photo-834892.jpeg',
-    'Pengukuran pekerjaan konstruksi',
-  ],
-  [
-    'panel-lantai-untuk-rumah-2-lantai',
-    'Panel Lantai untuk Rumah 2 Lantai',
-    'Hal yang perlu diperhatikan sebelum memilih panel lantai untuk lantai dua atau dak bangunan.',
-    'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg',
-    'Bangunan rumah dalam tahap konstruksi',
-  ],
-  [
-    'cara-memilih-bata-ringan',
-    'Cara Memilih Bata Ringan untuk Proyek Bangunan',
-    'Pertimbangan ukuran, kondisi material, volume, logistik dan kebutuhan dinding.',
-    'https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg',
-    'Material bata untuk pekerjaan dinding',
-  ],
-  [
-    'tips-merencanakan-renovasi-rumah',
-    'Tips Merencanakan Renovasi Rumah',
-    'Hal yang perlu disiapkan sebelum survey, penawaran dan pelaksanaan renovasi.',
-    'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg',
-    'Pekerjaan renovasi rumah',
-  ],
-];
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: title,
   url: canonical,
-  description: description,
+  description,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://essajaya.com/blog/${post.slug}/`,
+      name: post.title,
+    })),
+  },
 };
 ---
 
@@ -54,18 +28,18 @@ const schema = {
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow">Panduan</div>
-        <h1>Artikel & Panduan</h1>
+        <div class="eyebrow">Blog Essa Jaya</div>
+        <h1>Artikel &amp; Panduan</h1>
         <p>
-          Konten edukasi untuk membantu memahami panel lantai, bata ringan, renovasi rumah dan
-          perencanaan proyek sebelum berkonsultasi dengan Essa Jaya.
+          Temukan informasi dan panduan seputar panel lantai, bata ringan, konstruksi, serta
+          perencanaan renovasi rumah untuk membantu Anda menyiapkan proyek.
         </p>
       </div>
       <div class="visual">
         <div class="visual-label">
           <span class="eyebrow" style="color:#d9c8a4">Knowledge hub</span>
-          <strong>Material & Renovasi</strong>
-          <span>Informasi berdasarkan kebutuhan proyek.</span>
+          <strong>Material &amp; Renovasi</strong>
+          <span>Informasi untuk kebutuhan proyek bangunan.</span>
         </div>
       </div>
     </div>
@@ -73,21 +47,17 @@ const schema = {
   <section class="section">
     <div class="container">
       <div class="grid-3">
-        {
-          posts.map(([slug, name, desc, image, alt]) => (
-            <article class="card blog-card">
-              <a href={`/blog/${slug}/`}>
-                <img class="blog-thumb" src={image} alt={alt} loading="lazy" />
-                <div class="eyebrow">Panduan</div>
-                <h2 style="font-size:1.35rem;margin:10px 24px">{name}</h2>
-              </a>
-              <p>{desc}</p>
-              <a class="btn alt" href={`/blog/${slug}/`}>
-                Baca panduan
-              </a>
-            </article>
-          ))
-        }
+        {posts.map((post) => (
+          <article class="card blog-card">
+            <a href={`/blog/${post.slug}/`}>
+              <img class="blog-thumb" src={post.image} alt={post.imageAlt} loading="lazy" />
+              <div class="eyebrow">Panduan</div>
+              <h2 style="font-size:1.35rem;margin:10px 24px">{post.title}</h2>
+            </a>
+            <p>{post.description}</p>
+            <a class="btn alt" href={`/blog/${post.slug}/`}>Baca artikel</a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
