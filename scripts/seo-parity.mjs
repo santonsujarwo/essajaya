@@ -52,7 +52,7 @@ for (const [route, expected] of Object.entries(locked)) {
   if (!html.includes(`<h1>${expected.h1}</h1>`)) {
     errors.push(`H1 mismatch: ${route}`);
   }
-  if (expected.description && !html.includes(`content="${expected.description}"`)) {
+  if (expected.description && !html.replaceAll('&amp;', '&').includes(`content="${expected.description}"`)) {
     errors.push(`Meta description mismatch: ${route}`);
   }
   if (!html.includes('rel="canonical"')) errors.push(`Canonical missing: ${route}`);
