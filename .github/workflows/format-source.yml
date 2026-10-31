@@ -23,11 +23,13 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install formatter
+        run: |
+          npm install --no-save --package-lock=false prettier@3.6.2 prettier-plugin-astro@0.14.1
+
       - name: Format Astro, CSS, JavaScript, TypeScript, and JSON
         run: |
-          npx --yes --package=prettier@3.6.2 --package=prettier-plugin-astro@0.14.1 prettier \
-            --plugin=prettier-plugin-astro \
-            --write "**/*.{astro,css,js,mjs,cjs,ts,tsx,jsx,json}"
+          npx prettier --plugin=prettier-plugin-astro --write "**/*.{astro,css,js,mjs,cjs,ts,tsx,jsx,json}"
 
       - name: Commit formatted source
         run: |
