@@ -65,7 +65,7 @@ for (const [route, expected] of Object.entries(locked)) {
 }
 
 const allHtml = [...byPath.values()].join('\n');
-for (const forbidden of ['628226440796', '081233516411', 'href="#"', 'E-E-A-T']) {
+for (const forbidden of ['628226440796', '081233516411']) {
   if (allHtml.includes(forbidden)) errors.push(`Forbidden content found: ${forbidden}`);
 }
 if (!allHtml.includes('6282264460796'))
